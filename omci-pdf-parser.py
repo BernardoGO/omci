@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from __future__ import with_statement
+
 
 from ply import lex
 from ply.lex import TOKEN
@@ -35,7 +35,7 @@ def t_SECTION(t):
 def t_error(t):
     t.lexer.skip(len(t.value))
     t.lexer.text.append(t.value)
-    print TypeError("Unknown text '%s'" % (t.value,))
+    print(TypeError("Unknown text '%s'" % (t.value,)))
 
 lexer = lex.lex()
 
@@ -56,4 +56,4 @@ if __name__ == '__main__':
             while True:
                 tok = lexer.token()
                 if not tok: break
-                print repr(tok.type), repr(tok.value)
+                print(repr(tok.type), repr(tok.value))
